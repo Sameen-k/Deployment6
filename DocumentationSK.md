@@ -18,3 +18,8 @@ There are a total of 3 different main.tf Terraform files. General knowledge of i
 1. It's important to note that resources vary by region they are created in. This includes the creation of a key-pair. The infrastructure in both the East and West regions requires 1 key-pair each. This is essential since the key-pair must be specified in the instance resource blocks in the terraform files when creating the infrastructure.
 
 _AT THIS POINT CHECK TO MAKE SURE THE INFRASTRUCTURE IS SUCCESSFULLY CREATED_
+
+#### RDS Database configuration:
+Now an AWS RDS database can be configured. The purpose of it is so that the 4 SQLite databases on each application instance can connect to each other for shared data. 
+
+1. Navigate to AWS to configure the RDS database. For this deployment, make sure to select MySQL for "Engine Options". Then use the free tier template, create a username and password, allow public access, and disable encryption. After the database is created a default Security Group is also created, so make sure to edit that default Security Group and add the inbound rule to open port 3306 to IPv4 (everyone)
