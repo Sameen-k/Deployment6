@@ -123,7 +123,7 @@ resource "aws_instance" "instance3" {
   user_data              = "${file("setup.sh")}"
   
   tags = {
-    "Name" : "D6_Webserver2_WEST"
+    "Name" : "D6_Application3_WEST"
   }
 }
 
@@ -137,6 +137,6 @@ resource "aws_instance" "instance4" {
   user_data              = "${file("setup.sh")}"
   
   tags = {
-    "Name" : "D6_Application2_WEST"
+    "Name" : "D6_Application4_WEST"
   }
 }
