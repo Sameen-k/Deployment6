@@ -11,14 +11,11 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y libmysqlclient-dev 
 sudo apt-get install -y python3.7-dev
 
-git clone https://github.com/Sameen-k/Deployment6.git
-
-cd Deployment6
-
 # Create and activate virtual environment
-python3.7 -m venv myenv
-source myenv/bin/activate
-
+python3.7 -m venv test
+source test/bin/activate
+git clone https://github.com/Sameen-k/Deployment6.git
+cd Deployment6
 pip install pip --upgrade
 pip install -r requirements.txt
 # Install required packages in the virtual environment
@@ -27,5 +24,4 @@ pip install gunicorn
 python database.py
 python load_data.py
 python -m gunicorn app:app -b 0.0.0.0 -D && echo "Done"
-# Deactivate the virtual environment
-deactivate
+source test/bin/activate
