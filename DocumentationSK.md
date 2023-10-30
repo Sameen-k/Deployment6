@@ -45,5 +45,5 @@ When the pipeline runs it will create the infrastructure and and run the setup.s
 
 ![Screen Shot 2023-10-28 at 12 18 38 AM](https://github.com/Sameen-k/Deployment6/assets/128739962/0498e208-e27e-4eb8-a67e-3ef060763cde)
 
-_BE SURE TO MAKE SURE EACH INSTANCE HAS THE APPLICATION RUNNING_
+_MAKE SURE EACH INSTANCE HAS THE APPLICATION RUNNING_
 
