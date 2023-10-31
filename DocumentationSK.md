@@ -1,9 +1,11 @@
 ## Purpose 
+The purpose of this deployment was to create infrastructure with terraform that is redundant (multiple instances) and resilient (in different regions, East and West). This deployment also introduces application load balancers to the infrastructure.
 
 ## System Diagram 
 
-## Steps 
+![Untitled Diagram drawio (4)](https://github.com/Sameen-k/Deployment6/assets/128739962/739567cb-d62c-431f-bb78-122deba7df22)
 
+## Steps 
 #### Terraform:
 There are a total of 3 different main.tf Terraform files. General knowledge of instance contents is essential for understanding what infrastructure each Terraform file is creating. The diagram below shows each main.tf file and what each is responsible for creating:
 
@@ -47,3 +49,9 @@ When the pipeline runs it will create the infrastructure and and run the setup.s
 
 _MAKE SURE EACH INSTANCE HAS THE APPLICATION RUNNING_
 
+#### Configuring Load Balancers: 
+The last step is to add load balancers to this infrastructure. For this deployment, 2 application load balancers and 4 target groups were configured (1 load balancer and 2 target groups for each region (named: "ALB-east" and "ALB-west")). Each load balancer was placed in a security group called "ALB-HTTP" which had an HTTP port 80 open.
+
+## Optimization
+This infrastructure does well with redundancy as there are 4 total application instances in two different regions. Some places of improvement could be to integrate private subnets, particularly for the database as well as a private subnet for the applications with their own security groups for more security 
+Additionally, introducing a CDN could help with latency. 
