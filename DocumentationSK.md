@@ -31,7 +31,7 @@ Now an AWS RDS database can be configured. The purpose of it is so that the 4 SQ
 #### Jenkins AWS Credentials and Jenkins Agent Configuration:
 In the Terraform main.tf files, AWS credentials are necessary to create infrastructure. In order for Jenkins to use the main.tf files, they must be uploaded to GitHub for this deployment. This means that the main.tf files cannot contain our AWS credentials in order to maintain security. This means we must securely configure AWS access keys in Jenkins. 
 1. On the Jenkins interface, under the credentials tab, select "System" and "Global Credentials", and add your AWS credentials for both your access key and secret access key. The keys are saved in Jenkins and the Jenkins file with the names "AWS_ACCESS_KEYS" and "AWS_SECRET_KEYS". Jenkins file also has assigned the keys a variable that must match the terraform file. In this deployment, the keys are saved as variables called "aws_access_key" and "aws_secret_keys". The variables must stay consistent with both the Jenkins file and the main.tf file.
-2. This is a good time to also configure the Jenkins agent. This can be done by generating a key manually on the Agent instance and saving it to Jenkins as secret text along with the IP address of the Agent instance. The Jenkins agent is configured through SSH. 
+2. This is a good time to also configure the Jenkins agent. This can be done by using the .pem file of the Key-pair that's being utilized, then copying it and saving it to Jenkins as secret text along with the IP address of the Agent instance. The Jenkins agent is configured through SSH. 
 
 _MAKE SURE TO CHECK THE LOGS TO MAKE SURE THE SSH CONNECTION WAS SUCCESSFUL_
 
